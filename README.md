@@ -1,33 +1,6 @@
 # systemd-unitfile
 
-Converts folders containing systemd unit files to and from NodeJS objects. Converts these:
-
-```
-; /etc/systemd/system/hello.service
-[Unit]
-Description=MyApp
-After=docker.service
-Requires=docker.service
-
-[Service]
-ExecStart=/usr/bin/docker run busybox /usr/bin/echo "Hello World"
-Type=oneshot
-```
-
-```
-; /etc/systemd/system/hello2.service
-[Unit]
-Description=MyApp Again
-After=hello.service
-Requires=hello.service
-Environment="MESSAGE_TARGET=World"
-Environment="IMAGE=busybox"
-
-[Service]
-ExecStart=/usr/bin/docker run -e MESSAGE_TARGET=$MESSAGE_TARGET $IMAGE /usr/binecho "Hello Again $MESSAGE_TARGET"
-```
-
-to this:
+Converts folders containing systemd unit files to and from NodeJS objects. Converts this:
 
 ```javascript
 {
@@ -56,7 +29,32 @@ to this:
 }
 ```
 
-and back again.
+to these:
+
+```
+[Unit]
+Description=MyApp
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/usr/bin/docker run busybox /usr/bin/echo "Hello World"
+Type=oneshot
+```
+
+```
+[Unit]
+Description=MyApp Again
+After=hello.service
+Requires=hello.service
+Environment="MESSAGE_TARGET=World"
+Environment="IMAGE=busybox"
+
+[Service]
+ExecStart=/usr/bin/docker run -e MESSAGE_TARGET=$MESSAGE_TARGET $IMAGE /usr/binecho "Hello Again $MESSAGE_TARGET"
+```
+
+and back again. It can also read and write directories full of unit files.
 
 ## Why?
 
