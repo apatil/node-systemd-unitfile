@@ -1,0 +1,29 @@
+{
+  "name": "systemd-unitfile",
+  "version": "0.0.1",
+  "description": "Convert folders containing systemd unit files to and from JavaScript objects.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apatil/node-systemd-unitfile"
+  },
+  "keywords": [
+    "systemd",
+    "unit",
+    "file",
+    "coreos",
+    "fleet",
+    "ini",
+    "init"
+  ],
+  "author": "Anand Patil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apatil/node-systemd-unitfile/issues"
+  },
+  "homepage": "https://github.com/apatil/node-systemd-unitfile",
+  "dependencies": {}
+}
