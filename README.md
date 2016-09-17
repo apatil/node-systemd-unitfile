@@ -1,4 +1,5 @@
 # systemd-unitfile
+`npm install systemd-unitfile`
 
 Converts folders containing systemd unit files to and from NodeJS objects. Converts this:
 
